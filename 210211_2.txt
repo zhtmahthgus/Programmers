@@ -1,0 +1,25 @@
+//Solution.java
+//2021-02-11 11:28:54
+//단어 짝수번째 문자 대문자로
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        int n = 0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)==' '){
+                answer += s.charAt(i);
+                n=0;
+            }else if(n==0){
+                answer += s.valueOf(s.charAt(i)).toUpperCase();
+                n++;
+            }else if(n!=0&&n%2==0){
+                answer += s.valueOf(s.charAt(i)).toUpperCase();
+                n++;
+            }else if(n!=0&&n%2==1){
+                answer += s.valueOf(s.charAt(i)).toLowerCase();
+                n++;
+            }
+        }
+        return answer;
+    }
+}

@@ -1,0 +1,26 @@
+//중복되는 숫자 제외하고 배열에 추가
+import java.util.*;
+
+public class Solution {
+    public int[] solution(int []arr) {
+        List<Integer> answer2 = new ArrayList<Integer>();
+        for(int i=0;i<arr.length;i++){
+            if(i==0){
+                answer2.add(arr[i]);
+                }
+            else if(i!=0&&arr[i-1]==arr[i]){
+                continue;
+            }
+            else{
+            answer2.add(arr[i]);}
+        }
+        int[] answer = new int[answer2.size()];
+        int size=0;
+for(int temp : answer2){
+
+  answer[size++] = temp;
+
+}
+        return answer;
+    }
+}
