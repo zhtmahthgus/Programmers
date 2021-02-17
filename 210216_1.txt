@@ -1,0 +1,71 @@
+//모의고사
+import java.util.*;
+class Solution {
+    public int[] solution(int[] answers) {
+        int[] arr1 = new int[answers.length];
+        int[] arr2 = new int[answers.length];
+        int[] arr3 = new int[answers.length];
+        for(int i=0; i<answers.length; i++){
+            if(i%5==0)
+                arr1[i]=1;
+            if(i%5==1)
+                arr1[i]=2;
+            if(i%5==2)
+                arr1[i]=3;
+            if(i%5==3)
+                arr1[i]=4;
+            if(i%5==4)
+                arr1[i]=5;
+            if(i%2==0)
+                arr2[i]=2;
+            if(i%8==1)
+                arr2[i]=1;
+            if(i%8==3)
+                arr2[i]=3;
+            if(i%8==5)
+                arr2[i]=4;
+            if(i%8==7)
+                arr2[i]=5;
+            if(i%10==0||i%10==1)
+                arr3[i]=3;
+            if(i%10==2||i%10==3)
+                arr3[i]=1;
+            if(i%10==4||i%10==5)
+                arr3[i]=2;
+            if(i%10==6||i%10==7)
+                arr3[i]=4;
+            if(i%10==8||i%10==9)
+                arr3[i]=5;
+        }
+        int count1 =0;
+        int count2 =0;
+        int count3 =0;
+        for(int i=0; i<answers.length; i++){
+            if(arr1[i]==answers[i])
+                count1++;
+            if(arr2[i]==answers[i])
+                count2++;
+            if(arr3[i]==answers[i])
+                count3++;
+        }
+        int[] arr4 = {count1, count2, count3};
+        int max = arr4[0];
+        for(int i=0;i<3;i++) {
+            if(max<arr4[i]) {
+                max = arr4[i];
+            }
+        }
+        ArrayList<Integer> indexes = new ArrayList<Integer>();
+        for(int i=0;i<3;i++){
+            if(arr4[i]==max){
+               indexes.add(i+1);
+            }
+        }
+        int[] answer = new int[indexes.size()];
+        for(int i=0; i<indexes.size(); i++){
+            answer[i] = indexes.get(i);
+        }
+
+        return answer;
+    }
+}
