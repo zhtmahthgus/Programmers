@@ -1,0 +1,27 @@
+//JasenCase 문자열 만들기
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        char[] chr = s.toCharArray();
+
+        for(int i=0; i<s.length(); i++){
+            if(i==0&&chr[0]<=0X7A&&chr[0]>=0X61){
+                answer += Character.toString(chr[0]).toUpperCase();
+            }else if(i==0&&chr[0]<=0X39&&chr[0]>=0X30){
+                answer+=Character.toString(chr[i]);
+            }else if(i==0&&chr[0]<=0X5A&&chr[0]>=0X41){
+                answer+=Character.toString(chr[i]);
+            }else if(i!=s.length()-1&&chr[i]==' '&&chr[i+1]==' '){
+                answer+=Character.toString(chr[i]);
+            }else if(i!=s.length()-1&&chr[i]==' '){
+                answer+=Character.toString(chr[i]);
+                answer+=Character.toString(chr[i+1]).toUpperCase(); 
+            } else if(i!=0&&chr[i-1]!=' '){
+                answer+=Character.toString(chr[i]).toLowerCase();
+            } else if(i==s.length()-1&&chr[i]==' '){
+                answer+=Character.toString(chr[i]);
+            }
+        }
+        return answer;
+    }
+}
