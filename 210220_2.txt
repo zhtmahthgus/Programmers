@@ -1,0 +1,33 @@
+//2016년
+class Solution {
+    public String solution(int a, int b) {
+        String[] weekend = {"FRI","SAT","SUN","MON","TUE","WED","THU"};
+        String answer = "";
+        if(a==1){
+            answer=weekend[(b-1)%7];
+        }else if(a==2){
+            answer=weekend[(31+b-1)%7];
+        }else if(a==3){
+            answer=weekend[(31+29+b-1)%7];
+        }else if(a==4){
+            answer=weekend[(31+29+31+b-1)%7];
+        }else if(a==5){
+            answer=weekend[(31+29+31+30+b-1)%7];
+        }else if(a==6){
+            answer=weekend[(31+29+31+30+31+b-1)%7];
+        }else if(a==7){
+            answer=weekend[(31+29+31+30+31+30+b-1)%7];
+        }else if(a==8){
+            answer=weekend[(31+29+31+30+31+30+31+b-1)%7];
+        }else if(a==9){
+            answer=weekend[(31+29+31+30+31+30+31+31+b-1)%7];
+        }else if(a==10){
+            answer=weekend[(31+29+31+30+31+30+31+31+30+b-1)%7];
+        }else if(a==11){
+            answer=weekend[(31+29+31+30+31+30+31+31+30+31+b-1)%7];
+        }else if(a==12){
+            answer=weekend[(31+29+31+30+31+30+31+31+30+31+30+b-1)%7];
+        }
+        return answer;
+    }
+}
