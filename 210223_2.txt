@@ -1,0 +1,53 @@
+//15회 E-PPER 4번 100만들기
+//프로그래머스에서는 main함수 및 입출력문이 필요하지 않습니다. 대신 solution함수만 작성하면 됩니다.
+import java.util.*;
+
+ public class Main {
+ public static int[] solution(int[] numbers) {
+	 int[] answer = new int[7];
+	 ArrayList<Integer> list = new ArrayList<Integer>();
+	 int sum=0;
+	 int num1=0;
+	 int num2=0;
+	 for(int i=0; i<numbers.length;i++){
+		 sum+=numbers[i];
+	 }
+	 
+	 for(int i=0; i<numbers.length;i++){
+		 for(int j=i+1; j<numbers.length;j++){
+			 if(numbers[i]+numbers[j]==sum-100){
+				 num1=numbers[i];
+				 num2=numbers[j];
+				 break;
+			 }
+		 }
+	 }
+	 for(int i=0; i<numbers.length;i++){
+		 if(numbers[i]!=num1&&numbers[i]!=num2){
+			 list.add(numbers[i]);
+		 }
+	 }
+	 for(int i=0; i<list.size();i++){
+		 answer[i]=list.get(i);
+	 }
+
+	 return answer;
+ }
+	
+	public static void main(String [] args){
+		int [] numbers=new int[9];
+		int r[];
+		Scanner input= new Scanner(System.in);
+		
+		for (int i = 0; i < 9; i++) {
+			numbers[i]=input.nextInt();
+		}
+	
+	r = solution(numbers);
+	for (int i = 0; i < 7; i++) {
+		System.out.printf("%d ", r[i]);
+	}
+		
+		
+	}
+}
