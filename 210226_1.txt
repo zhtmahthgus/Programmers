@@ -1,0 +1,33 @@
+//오픈채팅방
+import java.util.*;
+class Solution {
+    public String[] solution(String[] record) {
+        String[][] str = new String[record.length][3];
+        HashMap<String, String> map = new HashMap<String, String>();
+        int count =0;
+        for(int i=0; i<record.length; i++){
+            str[i]=record[i].split(" ");
+        }
+        for(int i=0; i<str.length; i++){
+            if(str[i][0].equals("Change")){
+                map.put(str[i][1],str[i][2]);   
+            }else if(str[i][0].equals("Enter")){
+                map.put(str[i][1],str[i][2]);
+                count++;
+            }else if(str[i][0].equals("Leave")){
+                count++;
+            }
+        }
+        String[] answer = new String[count];
+        int index = -1;
+        for(int i=0; i<str.length; i++){
+            if(str[i][0].equals("Enter")){
+                answer[++index] = map.get(str[i][1])+"님이 들어왔습니다.";
+            }else if(str[i][0].equals("Leave")){ 
+                answer[++index] = map.get(str[i][1])+"님이 나갔습니다.";
+            }
+        }
+                
+        return answer;
+    }
+}
