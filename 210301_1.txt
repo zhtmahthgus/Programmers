@@ -1,0 +1,12 @@
+//카펫
+class Solution {
+    public int[] solution(int brown, int yellow) {
+        int[] answer = new int[2];
+        int b = brown/2-2;
+        int x = (b + (int)Math.sqrt(b*b-4*yellow))/2;
+        int y = b - x;
+        answer[0] = x+2;
+        answer[1] = y+2;
+        return answer;
+    }
+}
