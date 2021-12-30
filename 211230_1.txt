@@ -1,0 +1,65 @@
+//카카오 괄호변환
+import java.util.Stack;
+class Solution {
+    public Boolean isRight(String str){
+        Stack<String> stack = new Stack<>();
+        try{
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i) == '(')
+                stack.push("(");
+            if(str.charAt(i) == ')')
+                stack.pop();
+        }}catch(Exception e){
+            return false;
+        }
+        return true;
+    }
+    public String balanced(String str){
+        int num = 0;
+        String string = "";
+        for(int i=0;i<str.length();i++){
+                if(str.charAt(i) == '('){
+                    num++; 
+                    string += "(";
+                }
+                if(str.charAt(i) == ')'){
+                    num--;
+                    string += ")";
+                }
+            if(num == 0){
+                return string;
+            }
+        }
+        return string;
+    }
+    public String solution(String p) {
+        String answer = "";
+        if(p.equals(""))
+            return p;
+        String u = balanced(p);
+        String v = p.substring(u.length(),p.length());
+        String str1 = "";
+        String str2 = "";
+        String str3 = "";
+        if(isRight(u)){
+            str1 = solution(v);
+            u += str1;
+            answer = u;   
+        }
+        else{
+            str2 = "(";
+            str1 = solution(v);
+            str2 += str1;
+            str2 += ")";
+            str3 = u.substring(1,u.length()-1);
+            for(int i = 0;i<str3.length();i++){
+                if(str3.charAt(i) == '(')
+                    str2 += ")";
+                if(str3.charAt(i) == ')')
+                    str2 += "(";
+            }
+            answer = str2;
+        }
+        return answer;
+    }
+}
