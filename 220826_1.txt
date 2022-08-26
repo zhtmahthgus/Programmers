@@ -1,0 +1,31 @@
+//k진수에서 소수 개수 구하기
+//소수 구하는 법, 진수 변환
+import math
+def isPrime(n):
+    if n == 1:
+        return False
+    for i in range(2, int(math.sqrt(n))+1):
+        if n % i == 0:
+            return False
+    return True
+
+def solution(n, k):
+    answer = 0
+    rev_base = ''
+
+    while n > 0:
+        n, mod = divmod(n, k)
+        rev_base += str(mod)
+    rev_base = rev_base[::-1] 
+    
+    num = ''
+    for i in range(len(rev_base)):
+        if rev_base[i] != '0':
+            num += rev_base[i]
+        else:
+            if(num != '' and isPrime(int(num))):
+                answer += 1
+            num = ''
+    if num != '' and isPrime(int(num)):
+        answer += 1
+    return answer
