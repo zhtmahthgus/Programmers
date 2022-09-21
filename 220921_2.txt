@@ -1,0 +1,16 @@
+//야근 지수
+import heapq
+
+def solution(n, works):
+    answer = 0
+    heap = []
+    for i in works:
+	        heapq.heappush(heap, -i)
+    for _ in range(n):
+        value = heapq.heappop(heap)
+        heapq.heappush(heap,value+1)
+    for i in heap:
+        if i > 0:
+            return 0
+        answer += i*i
+    return answer
