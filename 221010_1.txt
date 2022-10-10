@@ -1,0 +1,12 @@
+//백준 11399번
+n = int(input())
+arr = list(map(int, input().split()))
+
+arr.sort()
+num = 0
+answer = 0
+for i in arr:
+    num += i
+    answer += num
+
+print(answer)
