@@ -1,0 +1,15 @@
+//네트워크(dfs)
+def dfs(i, computers, visited):
+    visited[i] = 1
+    for j in range(len(computers[i])):
+        if visited[j] == 0 and computers[i][j] == 1:
+            dfs(j,computers,visited)
+
+def solution(n, computers):
+    answer = 0
+    visited = [0 for _ in range(n)]
+    for i in range(n):
+        if visited[i] == 0:
+            answer += 1
+            dfs(i, computers, visited)
+    return answer

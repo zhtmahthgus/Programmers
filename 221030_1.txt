@@ -1,0 +1,12 @@
+//최고의 집합
+def solution(n, s):
+    answer = []
+    if s/n < 1:
+        return [-1]
+    for _ in range(n):
+        answer.append(int(s/n))
+    remain = s%n
+    for i in range(remain):
+        answer[i] += 1
+    answer.sort()
+    return answer
